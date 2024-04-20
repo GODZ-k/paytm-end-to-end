@@ -1,3 +1,4 @@
+import { Account } from "../models/user.account.model.js";
 import { User } from "../models/user.model.js";
 import {
   changePassswordType,
@@ -60,13 +61,20 @@ const registerUser = async (req, res) => {
 
   const user = await User.create({ username, password, email });
 
-  //   console.log(user)
   if (!user) {
     return res.status(500).json({
       msg: "Internal server error",
     });
   }
+ 
+  // Create new account 
 
+  await Account.create({
+    userId:user._id,
+    balance: Math.floor(Math.random()*1000 + 1)
+  })
+
+  
   return res.status(200).json({
     data: user,
     msg: "User created successfullly ",
