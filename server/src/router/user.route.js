@@ -1,4 +1,5 @@
 import {Router} from "express"
+import accountRoute from "./account.route.js"
 import updateUser from "./user.update.route.js"
 import { getCurrentUser, loginUser, logoutUser, registerUser } from "../controllers/user.controller.js"
 import { verifyJWT } from "../middleware/auth.middleware.js"
@@ -20,5 +21,8 @@ router.route("/current-user").get(verifyJWT,getCurrentUser)
 
 router.use("/update" , updateUser)
 
+// bypass account route
+
+router.use("/account" , accountRoute)
 
 export default router
