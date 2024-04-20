@@ -1,5 +1,5 @@
 import userRoute from "./user.route.js"
-import { getMessage } from "../controllers/main.controller.js";
+import { getUsers } from "../controllers/main.controller.js";
 
 import { Router } from "express";
 
@@ -12,6 +12,6 @@ router.use("/user" ,userRoute)
 
 // main routes
 
-router.route("").get(getMessage)
+router.route("/bulk").get(getUsers)
 
 export default router
