@@ -1,7 +1,9 @@
 import axios from "axios";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 export const Appbar = () => {
+
+const navigate = useNavigate()
 
   async function logoutUser() {
     await axios.get("http://localhost:3000/api/v1/user/logout", {
@@ -9,7 +11,9 @@ export const Appbar = () => {
         Authorization: `Barear ${localStorage.getItem("token")}`,
       },
     });
+
     localStorage.removeItem("token")
+    navigate("/signin")
   }
   return (
     <div className="shadow h-14 flex justify-between">
