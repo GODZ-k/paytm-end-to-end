@@ -33,6 +33,8 @@ const moneyTransfer =  async(req,res)=>{
     const {_id} = req.user
     const inputData =  req.body
 
+    console.log(inputData)
+
     const parsePayLoad = moneyTransferType.safeParse(inputData)
 
     console.log(parsePayLoad)
@@ -45,7 +47,7 @@ const moneyTransfer =  async(req,res)=>{
 
     const {to , amount} = parsePayLoad.data
 
-    if(amount > Number(25000)){
+    if(amount > 25000){
         await session.abortTransaction()
         return res.status(400).json({
             msg:"You can not transfer money above 25000"

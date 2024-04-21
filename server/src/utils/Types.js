@@ -27,7 +27,7 @@ const updateProfileType =  zod.object({
 const moneyTransferType =  zod.object({
     
         to:zod.string(),
-        amount:zod.number().int().positive().gte(1)
+        amount:zod.string()
     
 })
 
