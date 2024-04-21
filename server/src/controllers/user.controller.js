@@ -131,6 +131,7 @@ const loginUser = async (req, res) => {
     .cookie("refreshToken", refreshToken, options)
     .json({
       accessToken,
+      user:user.username,
       msg: "User loggedin successfully",
     });
 };

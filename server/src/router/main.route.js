@@ -12,6 +12,6 @@ router.use("/user" ,userRoute)
 
 // main routes
 
-router.route("/bulk").get(getUsers)
+router.route("/users").get(getUsers)
 
 export default router

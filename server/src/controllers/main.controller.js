@@ -1,7 +1,7 @@
 import { User } from "../models/user.model.js"
 
 const getUsers = async(req,res)=>{
-    const filter =  req.query.filter || " "
+    const filter =  req.query.filter || ""
 
 
     const users = await User.find({
