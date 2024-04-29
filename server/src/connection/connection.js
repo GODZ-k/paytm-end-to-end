@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const connectionUrl = "mongodb+srv://tanmaykhatri07726:a8s2QyxZgkUXgMQf@cluster0.3d6eral.mongodb.net/paytm"
+const connectionUrl = "mongodb+srv://tanmay:JxeWoxyj5lupYhKM@cluster0.theurha.mongodb.net/paytm"
 
 export default async function connectDb(){
     await mongoose.connect(connectionUrl)
